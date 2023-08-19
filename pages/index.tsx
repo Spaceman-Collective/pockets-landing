@@ -7,9 +7,6 @@ import styled from "@emotion/styled";
 export default function Home() {
   const today = new Date();
   const hour = today.getHours();
-  console.log({ hour });
-  const bg = hour % 3;
-  console.log({ bg });
   return (
     <>
       <Head>
