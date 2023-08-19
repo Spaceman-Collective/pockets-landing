@@ -8,6 +8,8 @@ import { WandFrame } from "@/components/WandFrame";
 export default function Home() {
   const today = new Date();
   const hour = today.getHours();
+  const amountOfImages = 9;
+  const bgImgNumber = (hour % amountOfImages) + 1;
   return (
     <>
       <Head>
@@ -17,7 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Hero backgroundImage={`bg_${(hour % 3) + 1}.png`}>
+        <Hero backgroundImage={`bg_${bgImgNumber}.png`}>
           <Flex p="0 2rem" justifyContent="space-between" alignItems="center">
             <Text textTransform="uppercase" fontWeight={700}>
               Pockets.gg
