@@ -1,8 +1,15 @@
 import Head from "next/head";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Text, VStack, Image, Grid } from "@chakra-ui/react";
 import { Layout } from "@/components/Layout";
+import Link from "next/link";
+import styled from "@emotion/styled";
 
 export default function Home() {
+  const today = new Date();
+  const hour = today.getHours();
+  console.log({ hour });
+  const bg = hour % 3;
+  console.log({ bg });
   return (
     <>
       <Head>
@@ -12,8 +19,71 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Text>Pockets.GG</Text>
+        <Hero backgroundImage={`bg_${(hour % 3) + 1}.png`}>
+          <Flex p="0 2rem" justifyContent="space-between" alignItems="center">
+            <Text textTransform="uppercase" fontWeight={700}>
+              Pockets.gg
+            </Text>
+            <Text
+              filter="drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75))"
+              fontWeight={700}
+            >
+              Requires a Solana wallet
+            </Text>
+            <Link href="https://app.pockets.gg">
+              <Button variant="outline">Play Pockets!</Button>
+            </Link>
+          </Flex>
+          <Grid placeItems="center" flexGrow={1}>
+            <Flex gap="2rem">
+              <Link href="https://app.pockets.gg">
+                <Image
+                  w="200px"
+                  src="logo.png"
+                  alt="logo"
+                  borderRadius="2rem"
+                  transition="all 0.25s ease-in-out"
+                  _hover={{
+                    transform: "scale(1.1)",
+                  }}
+                />
+              </Link>
+              <Box>
+                <HeroText textDecor="underline">Pockets.gg</HeroText>
+                <HeroText>Level-up</HeroText>
+                <HeroText>Join Factions</HeroText>
+                <HeroText>Build your city</HeroText>
+              </Box>
+            </Flex>
+          </Grid>
+        </Hero>
       </Layout>
     </>
   );
 }
+
+const Hero = styled(Flex)`
+  flex-direction: column;
+  background-position: 50% 50%;
+  animation: zoom 20s infinite ease-in-out;
+  padding: 2rem 2rem 4rem;
+  min-height: 40vh;
+
+  @keyframes zoom {
+    from {
+      background-size: 120%;
+    }
+    50% {
+      background-size: 100%;
+    }
+    to {
+      background-size: 120%;
+    }
+  }
+`;
+
+const HeroText = styled(Text)`
+  font-weight: 700;
+  font-size: 4rem;
+  filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75));
+`;

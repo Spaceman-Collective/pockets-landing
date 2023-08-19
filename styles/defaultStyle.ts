@@ -1,5 +1,6 @@
 import { extendBaseTheme } from "@chakra-ui/react";
 import chakraTheme from "@chakra-ui/theme";
+import { Button } from "./brand-components";
 
 export const colors = {
   brand: {
@@ -29,13 +30,13 @@ export const fonts = {
   body: "var(--body )",
 };
 
-const { Button } = chakraTheme.components;
+// const { Button } = chakraTheme.components;
 export const defaultTheme = extendBaseTheme({
   styles: {
     global: {
       body: {
-        color: "antiquewhite",
-        bg: "black",
+        color: "brand.secondary",
+        bg: "blacks.700",
         fontSize: "1.75rem",
       },
       h1: {
