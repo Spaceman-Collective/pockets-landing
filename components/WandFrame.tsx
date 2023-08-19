@@ -1,5 +1,6 @@
 //@ts-nocheck
 
+import { colors } from "@/styles/defaultStyle";
 import { Box } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useEffect, useRef } from "react";
@@ -20,7 +21,8 @@ export const WandFrame = () => {
     const mouse = {
       position: xy(mouseX, mouseY),
       decimal: xy(mouseX / windowWidth, mouseY / windowHeight),
-      multiplier: xy(1.3, 0.4),
+      // multiplier: xy(1.3, 0.4),
+      multiplier: xy(1.3, 0.1),
       offset: xy(windowWidth * -0.15, windowHeight * 0.1),
       modifiedPosition: xy(0, 0),
     };
@@ -92,13 +94,14 @@ export const WandFrame = () => {
 };
 
 const Container = styled(Box)`
-  background: rgb(2, 6, 23);
-  height: 100%;
-  overflow: hidden;
+  /* background: rgb(2, 6, 23); */
+  outline: 2px solid ${colors.brand.quaternary};
+  border-radius: 1rem;
+  min-height: 400px;
   display: grid;
   place-items: center;
   overflow: hidden;
-  position='relative'
+  position: relative;
 `;
 
 const Wand = styled.div`

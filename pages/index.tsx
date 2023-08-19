@@ -55,9 +55,9 @@ export default function Home() {
             </Flex>
           </Grid>
         </Hero>
-        <Box p="2rem">
+        <Flex p="2rem">
           <WandFrame />
-        </Box>
+        </Flex>
       </Layout>
     </>
   );
