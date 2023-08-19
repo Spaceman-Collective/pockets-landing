@@ -3,6 +3,7 @@ import { Box, Button, Flex, Text, VStack, Image, Grid } from "@chakra-ui/react";
 import { Layout } from "@/components/Layout";
 import Link from "next/link";
 import styled from "@emotion/styled";
+import { WandFrame } from "@/components/WandFrame";
 
 export default function Home() {
   const today = new Date();
@@ -54,6 +55,9 @@ export default function Home() {
             </Flex>
           </Grid>
         </Hero>
+        <Box p="2rem">
+          <WandFrame />
+        </Box>
       </Layout>
     </>
   );
