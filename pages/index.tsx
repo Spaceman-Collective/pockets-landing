@@ -4,6 +4,8 @@ import { Layout } from "@/components/Layout";
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { WandFrame } from "@/components/WandFrame";
+import { description } from "@/utils/constants";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const today = new Date();
@@ -60,10 +62,51 @@ export default function Home() {
         <Flex p="2rem">
           <WandFrame />
         </Flex>
+
+        {description.map((d, index) => (
+          <Flex
+            key={d.title}
+            p="2rem"
+            h={"700px"}
+            justifyContent={"center"}
+            alignItems="center"
+            flexDirection={"column"}
+            bg={index % 2 == 0 ? "whiteAlpha.200" : ""}
+          >
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              variants={PreviewAnimation}
+              style={{ display: 'flex', alignItems: "center", justifyContent: "center" }}
+            >
+              <VStack spacing="2rem" w={"60%"}>
+                <HeroText pb='28'>{d.title}</HeroText>
+                <HeroBodyText >{d.description}</HeroBodyText>
+              </VStack>
+            </motion.div>
+          </Flex>
+        ))}
       </Layout>
     </>
   );
 }
+
+const PreviewAnimation = {
+  initial: {
+    y: 30,
+    opacity: 0,
+    scale: 0.9,
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    transition: {
+      ease: [0.6, 0.01, 0.05, 0.95],
+      duration: 0.8,
+    },
+  },
+};
 
 const Hero = styled(Flex)`
   flex-direction: column;
@@ -88,5 +131,12 @@ const Hero = styled(Flex)`
 const HeroText = styled(Text)`
   font-weight: 700;
   font-size: 4rem;
+  filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75));
+`;
+
+const HeroBodyText = styled(Text)`
+  text-align: center;
+  font-weight: 500;
+  font-size: 3rem;
   filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75));
 `;
