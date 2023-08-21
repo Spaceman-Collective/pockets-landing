@@ -41,7 +41,7 @@ export default function Home() {
               <Link href="https://app.pockets.gg">
                 <Image
                   w="200px"
-                  src="logo.png"
+                  src="pockets_logo.png"
                   alt="logo"
                   borderRadius="2rem"
                   transition="all 0.25s ease-in-out"
@@ -51,27 +51,27 @@ export default function Home() {
                 />
               </Link>
               <Box>
-                <HeroText textDecor="underline">Pockets.gg</HeroText>
+                {/* <HeroText textDecor="underline">Pockets.gg</HeroText>
                 <HeroText>Level-up</HeroText>
                 <HeroText>Join Factions</HeroText>
-                <HeroText>Build your city</HeroText>
+                <HeroText>Build your city</HeroText> */}
               </Box>
             </Flex>
           </Grid>
         </Hero>
-        <Flex p="2rem">
+
+        {/* <Flex p="2rem">
           <WandFrame />
-        </Flex>
+        </Flex> */}
 
         {description.map((d, index) => (
-          <Flex
+          <Hero backgroundImage={(index % 2 !== 0) ? d.image : ""}
             key={d.title}
             p="2rem"
             h={"700px"}
             justifyContent={"center"}
             alignItems="center"
             flexDirection={"column"}
-            bg={index % 2 == 0 ? "whiteAlpha.200" : ""}
           >
             <motion.div
               initial="initial"
@@ -84,7 +84,7 @@ export default function Home() {
                 <HeroBodyText >{d.description}</HeroBodyText>
               </VStack>
             </motion.div>
-          </Flex>
+          </Hero>
         ))}
       </Layout>
     </>
