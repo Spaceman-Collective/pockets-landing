@@ -3,7 +3,6 @@ import { Box, Button, Flex, Text, VStack, Image, Grid } from "@chakra-ui/react";
 import { Layout } from "@/components/Layout";
 import Link from "next/link";
 import styled from "@emotion/styled";
-import { WandFrame } from "@/components/WandFrame";
 import { description } from "@/utils/constants";
 import { motion } from "framer-motion";
 
@@ -59,9 +58,6 @@ export default function Home() {
             </Flex>
           </Grid>
         </Hero>
-        <Flex p="2rem">
-          <WandFrame />
-        </Flex>
 
         {description.map((d, index) => (
           <Flex
@@ -77,11 +73,15 @@ export default function Home() {
               initial="initial"
               whileInView="animate"
               variants={PreviewAnimation}
-              style={{ display: 'flex', alignItems: "center", justifyContent: "center" }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
             >
               <VStack spacing="2rem" w={"60%"}>
-                <HeroText pb='28'>{d.title}</HeroText>
-                <HeroBodyText >{d.description}</HeroBodyText>
+                <HeroText pb="28">{d.title}</HeroText>
+                <HeroBodyText>{d.description}</HeroBodyText>
               </VStack>
             </motion.div>
           </Flex>
