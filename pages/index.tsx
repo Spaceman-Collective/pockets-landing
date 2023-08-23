@@ -1,14 +1,5 @@
 import Head from "next/head";
-import {
-  Box,
-  Button,
-  Flex,
-  Text,
-  VStack,
-  Image,
-  Grid,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Text, VStack, Image, Grid } from "@chakra-ui/react";
 import { Layout } from "@/components/Layout";
 import Link from "next/link";
 import styled from "@emotion/styled";
