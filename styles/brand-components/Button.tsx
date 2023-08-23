@@ -41,7 +41,7 @@ export const Button = defineStyleConfig({
       bg: "blacks.700",
       color: "brand.secondary",
       _hover: {
-        bg: "blacks.600",
+        bg: "blacks.500",
       },
     },
   },

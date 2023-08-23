@@ -1,5 +1,14 @@
 import Head from "next/head";
-import { Box, Button, Flex, Text, VStack, Image, Grid } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Text,
+  VStack,
+  Image,
+  Grid,
+  HStack,
+} from "@chakra-ui/react";
 import { Layout } from "@/components/Layout";
 import Link from "next/link";
 import styled from "@emotion/styled";
@@ -53,7 +62,25 @@ export default function Home() {
                 <HeroText>Level-up</HeroText>
                 <HeroText>Join Factions</HeroText>
                 <HeroText>Build your city</HeroText>
-                <HeroText textDecor="underline">Pockets.gg</HeroText>
+                <Flex gap="1rem" alignItems="center">
+                  <Link href="https://spacemandev.notion.site/Pockets-GG-f4681aac8fc24cf99ad304af3335f394?pvs=4">
+                    <Button
+                      variant="outline"
+                      size="md"
+                      filter="drop-shadow(0 2px 2px rgba(0,0,0,0.75))"
+                      _hover={{
+                        bg: "#222",
+                        borderColor: "transparent",
+                      }}
+                    >
+                      Learn More
+                    </Button>
+                  </Link>
+                  <Link href="https://app.pockets.gg">
+                    <Button py="1.5rem">Play Now</Button>
+                  </Link>
+                </Flex>
+                {/* https://spacemandev.notion.site/Pockets-GG-f4681aac8fc24cf99ad304af3335f394?pvs=4 */}
               </Box>
             </Flex>
           </Grid>
