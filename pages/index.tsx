@@ -50,14 +50,36 @@ export default function Home() {
                 />
               </Link>
               <Box>
-                <HeroText textDecor="underline">Pockets.gg</HeroText>
                 <HeroText>Level-up</HeroText>
                 <HeroText>Join Factions</HeroText>
                 <HeroText>Build your city</HeroText>
+                <HeroText textDecor="underline">Pockets.gg</HeroText>
               </Box>
             </Flex>
           </Grid>
         </Hero>
+        <Grid placeItems="center" p="3rem">
+          <Text
+            fontWeight="700"
+            fontSize="3rem"
+            letterSpacing="1px"
+            opacity="0.5"
+          >
+            What is this?
+          </Text>
+          <Link href="https://www.loom.com/share/8f7b332616794f3e89a0d7e61fd7e650?sid=37518785-741e-47e9-b76b-aaf2c09c4284">
+            <Image
+              src="demo.png"
+              alt="demo-vid-thumbnail"
+              borderRadius="2rem"
+              transition="all 0.25s ease-in-out"
+              _hover={{
+                transform: "scale(1.05)",
+                filter: "drop-shadow(0 2px 2px rgba(0,0,0,0.4))",
+              }}
+            />
+          </Link>
+        </Grid>
 
         {description.map((d, index) => (
           <Flex
@@ -79,13 +101,65 @@ export default function Home() {
                 justifyContent: "center",
               }}
             >
-              <VStack spacing="2rem" w={"60%"}>
+              <VStack spacing="2rem" maxW="800px" alignItems="start">
                 <HeroText pb="28">{d.title}</HeroText>
                 <HeroBodyText>{d.description}</HeroBodyText>
               </VStack>
             </motion.div>
           </Flex>
         ))}
+
+        <Box maxW="600px" m="0 auto" py="4rem" letterSpacing="0.25px">
+          <Text opacity="0.4" py="2rem">
+            Better landing page coming soon! In meantime, here is the gist...
+          </Text>
+          {`  **Welcome to Pockets.GG!:**
+
+Enter a world where social coordination meets thrilling challenges and endless rewards. In Pockets, you'll be part of a faction and work with other players to achieve victory through various means. Here's a sneak peek at what awaits you:
+
+**Create Your Character:**
+Mint characters from unique NFT collections. Level up combat and non-combat skills to strengthen your character and aid your faction.
+
+**Join a Faction:**
+Create or join a faction and become a citizen, working together with others to achieve one or more victory conditions. Harvest resources, engage in governance, and contribute to the overall success of your faction.
+
+**Explore Resource Fields:**
+Discover, prospect, and harvest resource fields. Turn common resources into rarer forms, and use them for upgrading skills, construction, or XP gain.
+
+**Build and Utilize Stations:**
+Build stations to process resources or train units for combat. Expand your faction's defenses and utilize different tiers of resources.
+
+**Engage in Battle:**
+Take part in thrilling battles using units trained at your faction's combat stations. Win Domination Points for victory and work towards the Domination victory condition.
+
+**Govern Your Faction:**
+Participate in collective decision-making through voting, delegating, or transferring power. Influence the building, upgrading, or changing of your faction's rules.
+
+**Complete AI City Favors:**
+Mint and complete requests from AI City States, gaining fame for your faction and moving closer to the Favor victory.
+
+**Win Prizes:**
+Participate in seasonal competitions to win prizes. The prize pot grows with activities costing $BONK, and it's distributed among various winning categories.
+
+**What's at Stake:**
+
+- 20% to game developers
+- 20% burned
+- 15% to the Faction with the most battles won ,
+- 15% to the Faction with the highest total level
+- 15% to the Faction with the highest fame amongst AI City States
+- 15% to the Faction that burned the most resources
+
+**The More You Play, the More You Win:**
+Factions can win multiple categories to get the full 60% of the prize pool.
+
+Whether you're into resource management, strategic combat, or social coordination, Pockets offers something for everyone. Join today and become part of an ever-growing world of fun, challenge, and reward. The more players, the bigger the prize! Join now and carve your path to victory!
+`
+            .split(`**`)
+            .map((e) => (
+              <Text key={e}>{e}</Text>
+            ))}
+        </Box>
       </Layout>
     </>
   );
@@ -131,11 +205,12 @@ const Hero = styled(Flex)`
 const HeroText = styled(Text)`
   font-weight: 700;
   font-size: 4rem;
+
   filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75));
 `;
 
 const HeroBodyText = styled(Text)`
-  text-align: center;
+  text-align: start;
   font-weight: 500;
   font-size: 3rem;
   filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.75));
