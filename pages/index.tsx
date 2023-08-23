@@ -21,8 +21,18 @@ export default function Home() {
       </Head>
       <Layout>
         <Hero backgroundImage={`bg_${bgImgNumber}.png`}>
-          <Flex p="0 2rem" justifyContent="space-between" alignItems="center">
-            <Text textTransform="uppercase" fontWeight={700}>
+          <Flex
+            gap="1rem"
+            p="0 2rem"
+            justifyContent="space-between"
+            alignItems="center"
+            direction={{ base: "column-reverse", md: "row" }}
+          >
+            <Text
+              textTransform="uppercase"
+              fontWeight={700}
+              display={{ base: "none", md: "inline" }}
+            >
               Pockets.gg
             </Text>
             <Text
@@ -35,8 +45,13 @@ export default function Home() {
               <Button variant="outline">Play Pockets!</Button>
             </Link>
           </Flex>
-          <Grid placeItems="center" flexGrow={1}>
-            <Flex gap="2rem">
+          <Grid placeItems="center" flexGrow={1} pt={{ base: "2rem", md: 0 }}>
+            <Flex
+              gap="2rem"
+              direction={{ base: "column", md: "row" }}
+              alignItems="center"
+              justifyContent="center"
+            >
               <Link href="https://app.pockets.gg">
                 <Image
                   w="200px"
@@ -53,7 +68,11 @@ export default function Home() {
                 <HeroText>Level-up</HeroText>
                 <HeroText>Join Factions</HeroText>
                 <HeroText>Build your city</HeroText>
-                <Flex gap="1rem" alignItems="center">
+                <Flex
+                  gap="1rem"
+                  alignItems="center"
+                  pt={{ base: "1rem", md: 0 }}
+                >
                   <Link href="https://spacemandev.notion.site/Pockets-GG-f4681aac8fc24cf99ad304af3335f394?pvs=4">
                     <Button
                       variant="outline"
