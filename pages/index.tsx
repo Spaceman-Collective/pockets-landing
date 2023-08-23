@@ -205,7 +205,7 @@ const Hero = styled(Flex)`
   background-position: 50% 50%;
   animation: zoom 20s infinite ease-in-out;
   padding: 2rem 2rem 4rem;
-  min-height: 40vh;
+  min-height: 59vh;
 
   @keyframes zoom {
     from {
@@ -217,6 +217,22 @@ const Hero = styled(Flex)`
     to {
       background-size: 120%;
     }
+  }
+
+  @keyframes slide {
+    from {
+      background-position: 0%;
+    }
+    50% {
+      background-position: 100%;
+    }
+    to {
+      background-position: 0%;
+    }
+  }
+
+  @media only screen and (max-width: 1050px) {
+    animation: slide 40s infinite ease-in-out;
   }
 `;
 
